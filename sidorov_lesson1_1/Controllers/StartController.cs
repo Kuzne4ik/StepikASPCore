@@ -38,7 +38,7 @@ namespace lesson1_1.Controllers
             }
 
 
-            return "HI";
+            throw new Exception("Неизвестный промежуток времени");
             //return View();
         }
     }
