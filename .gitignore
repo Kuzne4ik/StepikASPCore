@@ -9,7 +9,7 @@
 *.sln.docstates
 
 # Visual Studio cache/options directory
-/.vs
+.vs
 
 # Build results
 [Bb]uild/
@@ -32,4 +32,26 @@
 /pizza-site/.vscode
 /pizza-site/.angular/cache/13.3.7
 /pizza-site/node_modules
-/sidorov_lesson2_1_1/.vs
+sidorov_lesson1_2/.vs/ProjectEvaluation/lesson1_1.metadata.v9.bin
+sidorov_lesson1_2/.vs/ProjectEvaluation/lesson1_1.projects.v9.bin
+sidorov_lesson1_2/.vs/ProjectEvaluation/lesson1_1.strings.v9.bin
+sidorov_lesson1_2/.vs/lesson1_1/CopilotIndices/17.14.1431.25910/CodeChunks.db
+sidorov_lesson1_2/.vs/lesson1_1/CopilotIndices/17.14.1431.25910/SemanticSymbols.db
+sidorov_lesson1_2/.vs/lesson1_1/DesignTimeBuild/.dtbcache.v2
+sidorov_lesson1_2/.vs/lesson1_1/FileContentIndex/c0856e4a-f3db-4e59-95af-6caa51201323.vsidx
+sidorov_lesson1_2/.vs/lesson1_1/config/applicationhost.config
+sidorov_lesson1_2/.vs/lesson1_1/v17/.futdcache.v2
+sidorov_lesson1_2/.vs/lesson1_1/v17/DocumentLayout.backup.json
+sidorov_lesson1_2/.vs/lesson1_1/v17/DocumentLayout.json
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/CopilotIndices/17.14.1431.25910/CodeChunks.db
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/CopilotIndices/17.14.1431.25910/CodeChunks.db-shm
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/CopilotIndices/17.14.1431.25910/CodeChunks.db-wal
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/CopilotIndices/17.14.1431.25910/SemanticSymbols.db
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/CopilotIndices/17.14.1431.25910/SemanticSymbols.db-shm
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/CopilotIndices/17.14.1431.25910/SemanticSymbols.db-wal
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/FileContentIndex/3e6712c8-d37f-4813-bcb7-cfa594b79c4e.vsidx
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/FileContentIndex/4af523d0-1f3a-47ae-9028-2055996eed6f.vsidx
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/FileContentIndex/930bed30-a62c-40bc-8178-4ba856c25a77.vsidx
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/config/applicationhost.config
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/v17/DocumentLayout.backup.json
+sidorov_lesson1_2/.vs/sidorov_lesson1_2/v17/DocumentLayout.json
