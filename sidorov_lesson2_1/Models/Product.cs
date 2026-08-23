@@ -1,0 +1,52 @@
+﻿using System.Text.Json.Serialization;
+
+namespace lesson2_1.Models
+{
+    /// <summary>
+    /// Товар
+    /// </summary>
+    public class Product
+    {
+
+        public Product(int id, string name, decimal cost, string description)
+        {
+            Id = id;
+            Name = name;
+            Cost = cost;
+            Description = description;
+        }
+
+        /// <summary>
+        /// Идентификатор товара
+        /// </summary>
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Название товара
+        /// </summary>
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Стоимость товара
+        /// </summary>
+        [JsonPropertyName("cost")]
+        public decimal Cost { get; set; }
+
+        /// <summary>
+        /// Описание товара
+        /// </summary>
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Строковое представление товара
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return $"#{Id}: {Name} - {Cost} руб.";
+        }
+    }
+}
