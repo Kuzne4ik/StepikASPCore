@@ -2,10 +2,8 @@
 
 namespace sidorov_lesson1_4.Controllers
 {
-    [Route("calc")]
-    public class CalculatorController : Controller
+    public class CalcController : Controller
     {
-        [Route("index")]
         public string Index(double a, double b, string c = "+")
         {
             if (c == "+")
