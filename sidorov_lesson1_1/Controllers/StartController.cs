@@ -4,7 +4,7 @@ namespace lesson1_1.Controllers
 {
     public class StartController : Controller
     {
-        public string Index()
+        public string Hello()
         {
             var now = DateTime.Now;
 
