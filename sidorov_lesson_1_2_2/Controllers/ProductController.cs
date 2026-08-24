@@ -23,10 +23,7 @@ namespace lesson_1_2_2.Controllers
                 var product = _productsRepository.TryGetById(id.Value) ;
                 if (product != null)
                 {
-                    res += product.Id + "\n" +
-                           product.Name + "\n" +
-                           product.Cost.ToString() + "\n" +
-                           product.Description + "\n\n";
+                    res += $"{product.Id}{Environment.NewLine}{product.Name}{Environment.NewLine}{product.Cost:c}{Environment.NewLine}{product.Description}{Environment.NewLine}{Environment.NewLine}";
                 }
                 else
                 {
@@ -40,7 +37,7 @@ namespace lesson_1_2_2.Controllers
             // Нет id, выводим все товары
             foreach (var product in products)
             {
-                res += $"{product.Id}{Environment.NewLine}{product.Name}{Environment.NewLine}{product.Cost:c}{Environment.NewLine}{product.Description}{Environment.NewLine}{Environment.NewLine}";
+                res += $"{product.Id}{Environment.NewLine}{product.Name}{Environment.NewLine}{product.Cost:c}{Environment.NewLine}{Environment.NewLine}";
             }
 
             return res;
