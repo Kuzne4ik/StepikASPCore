@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <a href="/product/index">Product</a>
+    <a href="/product/add?userId=5">Ссылка1</a>
+    <a href="/test/index">Ссылка3</a>
+    <a href="/test/add/5">Ссылка4</a>
+    <a asp-controller="Test" asp-action="Add" asp-route-userId="5">Ссылка6</a>
+    <a asp-controller="Test" asp-action="Remove" asp-route-userId="5">Ссылка7</a>      
+</div>
+</body>
+</html>
