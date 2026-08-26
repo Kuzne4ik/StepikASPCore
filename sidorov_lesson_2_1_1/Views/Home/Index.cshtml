@@ -1,50 +1,35 @@
 ﻿@model List<lesson_2_1_1.Models.Product>?
 @{
-    Layout = null;
     ViewData["Title"] = "Products";
+    Layout = "_Layout";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>@ViewData["Title"] </title>
-</head>
-<body>
-<div>
-    
-    <div class="container">
-        <div class="row">
-            @{
-                if (Model != null)
+<div class="container">
+    <div class="row">
+        @{
+            if (Model != null)
+            {
+                foreach (var product in Model)
                 {
-                    foreach (var product in Model)
-                    {
-                        <div class="col-3 mb-3">
-                            <div class="card shadow">
-                                <img class="card-img-top" src=@product.PhotoPath alt="...">
-                                <div class="card-body text-center">
-                                    <a class="text-success" asp-controller="product" asp-action="index" asp-route-id="@product.Id">
-                                        <h5>@product.Name</h5>
-                                    </a>
-                                    <div class="text-left">
-                                        <p>@product.Description</p>
-                                    </div>
-                                    <h2 class="text-danger"> @product.Cost.ToString("c")</h2>
-                                    <a class="btn btn-success" href="#">Добавить в корзину</a>
+                    <div class="col-3 mb-3">
+                        <div class="card shadow">
+                            <img class="card-img-top" src=@product.PhotoPath alt="...">
+                            <div class="card-body text-center">
+                                <a class="text-success" asp-controller="product" asp-action="index" asp-route-id="@product.Id">
+                                    <h5>@product.Name</h5>
+                                </a>
+                                <div class="text-left">
+                                    <p>@product.Description</p>
                                 </div>
+                                <h2 class="text-danger"> @product.Cost.ToString("c")</h2>
+                                <a class="btn btn-success" href="#">Добавить в корзину</a>
                             </div>
                         </div>
+                    </div>
 
-                    }
                 }
-
             }
-        </div>
-    </div>
 
-    <script src="~/js/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/bootstrap.bundle.min.js"></script>
+        }
+    </div>
 </div>
-</body>
-</html>
