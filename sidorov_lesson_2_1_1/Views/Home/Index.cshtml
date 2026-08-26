@@ -1,4 +1,5 @@
 ﻿@model List<lesson_2_1_1.Models.Product>?
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Products";
     Layout = "_Layout";
@@ -29,7 +30,10 @@
 
                 }
             }
-
+            else
+            {
+                <h2>Нет товаров для отображения!</h2>
+            }
         }
     </div>
 </div>

@@ -15,34 +15,20 @@ namespace lesson_2_1_1.Controllers
 
         public IActionResult Index(int? id = null)
         {
-            /*
-            var res = string.Empty;
-            
-            // Если передан id, ищем товар с этим id
+
+            // Если передан id, ищем товар с этим id и показать view с этим товаром
             if (id != null)
             {
                 var product = _productsRepository.TryGetById(id.Value) ;
-                if (product != null)
-                {
-                    res += $"{product.Id}{Environment.NewLine}{product.Name}{Environment.NewLine}{product.Cost:c}{Environment.NewLine}{product.Description}{Environment.NewLine}{Environment.NewLine}";
-                }
-                else
-                {
-                    res += $"Товар с Id = {id} не найден.\n\n";
-                }
-                return res;
-            }
-            */
 
+                // Views/Product/Details.cshtml - для отображения одного товара
+                return View(product);
+            }
+
+            // Если id не передан, показать view со всеми товарами
             var products = _productsRepository.GetAll();
 
-            /*
-            // Нет id, выводим все товары
-            foreach (var product in products)
-            {
-                res += $"{product.Id}{Environment.NewLine}{product.Name}{Environment.NewLine}{product.Cost:c}{Environment.NewLine}{Environment.NewLine}";
-            }*/
-
+            // Views/Product/Index.cshtml - для отображения всех товаров
             return View(products);
         }
 
