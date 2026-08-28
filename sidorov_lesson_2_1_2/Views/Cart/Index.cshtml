@@ -1,0 +1,47 @@
+﻿@model lesson_2_1_2.Models.Cart
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+<body>
+    <div>
+    
+        <div class="container">
+            @{
+                if (Model != null)
+                {
+                    foreach (var cartItem in Model.Items)
+                    {
+                        <div class="row">
+                            <div class="align-content-center" col-12 mb-3 class="card shadow">
+                                <div class="col-3 mb-3">
+                                    <img class="card-img-top" src=@cartItem.Product.PhotoPath alt="...">
+                                </div>
+                                <div class="col-5 mb-5">
+                                    <div class="card-body text-center">
+                                        <h3>@cartItem.Product.Name</h3>
+                                    </div>
+                                </div>
+                                <div class="col-2 mb-5">
+                                    <h2 class="text-danger"> @cartItem.Product.Cost.ToString("c")</h2>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    
+                }
+            }
+        </div>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-info col-12">Продолжить покупки</a>
+
+    </div>
+
+</body>
+</html>
