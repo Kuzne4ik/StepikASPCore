@@ -7,13 +7,13 @@ namespace lesson2_1.Repositories
         public static List<Cart>? _carts = new List<Cart>();
 
 
-        private static int CartIdCounter = 0;
+        private static int _cartIdCounter = 0;
 
-        private static int CartItemIdCounter = 1;
+        private static int _cartItemIdCounter = 1;
 
         internal CartsRepository()
         {
-            if (_carts != null && !_carts.Any())
+            if (!_carts.Any())
             {
                 // Создаем одну корзину при инициализации репозитория
                 AddCart();
@@ -27,7 +27,7 @@ namespace lesson2_1.Repositories
 
         public Cart AddCart()
         {
-            var newCart = new Cart(++CartIdCounter);
+            var newCart = new Cart(++_cartIdCounter);
             _carts?.Add(newCart);
             return newCart;
         }
@@ -64,7 +64,7 @@ namespace lesson2_1.Repositories
                 {
                     cart.Items.Add(new CartItem(
                     
-                        ++CartIdCounter,
+                        ++_cartItemIdCounter,
                         product,
                         1
                     ));

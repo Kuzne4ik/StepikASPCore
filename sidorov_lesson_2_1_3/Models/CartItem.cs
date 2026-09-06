@@ -20,11 +20,11 @@
             set
             {
                 _quantity = value;
-                Price = Product.Cost * _quantity;
+                Cost = Product.Cost * _quantity;
             }
         }
 
-        public decimal Price { get; set; }
+        public decimal Cost { get; set; }
         
     }
 }
