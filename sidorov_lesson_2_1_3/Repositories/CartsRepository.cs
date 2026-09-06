@@ -4,14 +4,20 @@ namespace lesson2_1.Repositories
 {
     public class CartsRepository
     {
-        readonly List<Cart>? _carts;
+        public static List<Cart>? _carts = new List<Cart>();
+
+
+        private static int CartIdCounter = 0;
+
+        private static int CartItemIdCounter = 1;
 
         internal CartsRepository()
         {
-
-            _carts = new List<Cart>
+            if (_carts != null && !_carts.Any())
             {
-            };
+                // Создаем одну корзину при инициализации репозитория
+                AddCart();
+            }
         }
 
         public List<Cart>? GetAll()
@@ -19,11 +25,58 @@ namespace lesson2_1.Repositories
             return _carts;
         }
 
+        public Cart AddCart()
+        {
+            var newCart = new Cart(++CartIdCounter);
+            _carts?.Add(newCart);
+            return newCart;
+        }
+
         public Cart? TryGetById(int id)
         {
             return _carts?.FirstOrDefault(t => t.Id == id);
         }
 
+        public void Update(Cart cart)
+        {
+            var targetCart = _carts.FirstOrDefault(t => t.Id == cart.Id);
+            if (targetCart != null)
+            {
+                targetCart.Items = targetCart.Items;
+                return;
+            }
+            throw new Exception($"Cart not found by id: {cart.Id}");
+            
+        }
+
+        public Cart? AddCartItem(int id, Product product)
+        {
+            var cart = TryGetById(id);
+            
+            if (cart != null)
+            {
+                var cartItem = cart.Items.FirstOrDefault(t => t.Product.Id == product.Id);
+                if (cartItem != null)
+                {
+                    cartItem.Quantity++;
+                }
+                else
+                {
+                    cart.Items.Add(new CartItem(
+                    
+                        ++CartIdCounter,
+                        product,
+                        1
+                    ));
+                }
+
+                Update(cart);
+                return cart;
+            }
+
+
+            throw new Exception($"Cart not found by id: {id}");
+        }
     }
 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

@@ -1,4 +1,4 @@
-﻿@model lesson_2_1_3.Models.Cart
+﻿@model lesson_2_1_3.Models.Cart?
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "_Layout";
@@ -14,31 +14,70 @@
     
         <div class="container">
             @{
+                
                 if (Model != null)
                 {
-                    foreach (var cartItem in Model.Items)
+                    var cart = Model;
+                    if (cart.Items.Count > 0)
                     {
-                        <div class="row">
-                            <div class="align-content-center" col-12 mb-3 class="card shadow">
-                                <div class="col-3 mb-3">
-                                    <img class="card-img-top" src=@cartItem.Product.PhotoPath alt="...">
-                                </div>
-                                <div class="col-5 mb-5">
-                                    <div class="card-body text-center">
-                                        <h3>@cartItem.Product.Name</h3>
+                        <div class="row mb-2 font-weight-bold" style="font-size:1.2rem">
+                            <div class="col-3 ">#</div>
+                            <div class="col-3 ">Наименование товара</div>
+                            <div class="col-2 text-center">Цена, руб</div>
+                            <div class="col-2 text-center">Количество, шт</div>
+                            <div class="col-2 text-center">Стоимость, руб</div>
+                        </div>
+                        foreach (var cartItem in cart.Items)
+                        {
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <div class="card shadow">
+                                        <div class="row ">
+                                            <div class="col-3 p-0 align-self-start">
+                                                <img class="w-50 h-50" style="object-fit:cover" src="@cartItem.Product.PhotoPath" alt="@cartItem.Product.Name">
+                                            </div>
+                                            <div class="col-3 align-self-center">
+                                                <h3 class="text-left">@cartItem.Product.Name</h3>
+                                            </div>
+                                            <div class="col-2 align-self-center">
+                                                <h3 class="text-center">@cartItem.Product.Cost</h3>
+                                            </div>
+                                            <div class="col-2 align-self-center">
+                                                <h3 class="text-center">@cartItem.Quantity</h3>
+                                            </div>
+                                            <div class="col-2 align-self-center">
+                                                <h3 class="text-danger text-center">@cartItem.Price.ToString("c")</h3>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-2 mb-5">
-                                    <h2 class="text-danger"> @cartItem.Product.Cost.ToString("c")</h2>
-                                </div>
+                            </div>
+                        }
+                        <div class="row mt-3 font-weight-bold" style="font-size:1.5rem">
+                            <div class="col-10 text-right">Итоговая сумма:</div>
+                            <div class="col-2 text-center text-danger">
+                                @cart.Items.Sum(i => i.Price).ToString("c")
                             </div>
                         </div>
-                    }
 
-                    
+                    }
+                    else
+                    {
+                        <h2>В корзине нет товаров!</h2>
+                    }
+                }
+                else
+                {
+                    <h2>В корзине нет товаров!</h2>
                 }
             }
+            <div class="row justify-content-center">
+                <a class="btn btn-success col-12" href="#">
+                    <h5>Оформить заказ</h5>
+                </a>
+            </div>
         </div>
+
         <a asp-controller="Home" asp-action="Index" class="btn btn-info col-12">Продолжить покупки</a>
 
     </div>

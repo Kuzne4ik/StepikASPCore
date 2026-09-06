@@ -14,18 +14,10 @@ namespace lesson_2_1_3.Controllers
 
         public IActionResult Index()
         {
-
-
             var products = _productsRepository.GetAll();
-
-            /*
-            // Нет id, выводим все товары
-            foreach (var product in products)
-            {
-                res += $"{product.Id}{Environment.NewLine}{product.Name}{Environment.NewLine}{product.Cost:c}{Environment.NewLine}{Environment.NewLine}";
-            }*/
-
             return View(products);
         }
+
+
     }
 }

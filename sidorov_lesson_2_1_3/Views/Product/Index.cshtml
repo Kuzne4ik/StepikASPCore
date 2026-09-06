@@ -17,7 +17,7 @@
                 if (Model != null)
                 {
                     var product = Model;
-                    <div class="align-content-center" class="card shadow">
+                    <div class="card shadow">
                         <div class="col-5 mb-5 align-content-xs-center">
                             <img class="card-img-top" src=@product.PhotoPath alt="...">
                         </div>
@@ -28,12 +28,14 @@
                             </div>
                             <h2 class="text-danger"> @product.Cost.ToString("c")</h2>
                         </div>
+                        <a class="btn btn-success" asp-controller="cart" asp-action="add" asp-route-id="1" asp-route-productid="@product.Id">Добавить в корзину</a>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-info col-12">Продолжить покупки</a>
                     </div>
                 }
             }
         </div>
-        <a class="btn btn-success col-12" href="#">Добавить в корзину</a>
-        <a asp-controller="Home" asp-action="Index" class="btn btn-info col-12">Продолжить покупки</a>
+        
+        
 
     </div>
 
