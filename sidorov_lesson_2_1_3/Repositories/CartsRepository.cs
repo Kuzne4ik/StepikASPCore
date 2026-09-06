@@ -1,15 +1,11 @@
 using lesson_2_1_3.Models;
 
-namespace lesson2_1.Repositories
+namespace lesson_2_1_3.Repositories
 {
     public class CartsRepository
     {
         public static List<Cart>? _carts = new List<Cart>();
 
-
-        private static int _cartIdCounter = 0;
-
-        private static int _cartItemIdCounter = 1;
 
         internal CartsRepository()
         {
@@ -27,12 +23,17 @@ namespace lesson2_1.Repositories
 
         public Cart AddCart()
         {
-            var newCart = new Cart(++_cartIdCounter);
+            Cart newCart;
+            if (!_carts.Any())
+                newCart = new Cart(Cart.StartGuid); // Используем StartGuid для первой корзины
+            else
+                newCart = new Cart(Guid.NewGuid());
             _carts?.Add(newCart);
+
             return newCart;
         }
 
-        public Cart? TryGetById(int id)
+        public Cart? TryGetById(Guid id)
         {
             return _carts?.FirstOrDefault(t => t.Id == id);
         }
@@ -49,7 +50,7 @@ namespace lesson2_1.Repositories
             
         }
 
-        public Cart? AddCartItem(int id, Product product)
+        public Cart? AddCartItem(Guid id, Product product)
         {
             var cart = TryGetById(id);
             
@@ -64,7 +65,7 @@ namespace lesson2_1.Repositories
                 {
                     cart.Items.Add(new CartItem(
                     
-                        ++_cartItemIdCounter,
+                        Guid.NewGuid(),
                         product,
                         1
                     ));

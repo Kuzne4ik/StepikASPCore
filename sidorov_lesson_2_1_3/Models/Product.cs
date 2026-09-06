@@ -7,7 +7,7 @@ namespace lesson_2_1_3.Models
     /// </summary>
     public class Product
     {
-        public Product(int id, string name, decimal cost, string description, string photoPath)
+        public Product(Guid id, string name, decimal cost, string description, string photoPath)
         {
             Id = id;
             Name = name;
@@ -20,7 +20,7 @@ namespace lesson_2_1_3.Models
         /// Идентификатор товара
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Название товара

@@ -1,4 +1,4 @@
-﻿using lesson2_1.Repositories;
+﻿using lesson_2_1_3.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace lesson_2_1_3.Controllers
@@ -13,7 +13,7 @@ namespace lesson_2_1_3.Controllers
         }
 
 
-        public IActionResult Index(int? id = null)
+        public IActionResult Index(Guid? id = null)
         {
 
             // Если передан id, ищем товар с этим id и показать view с этим товаром

@@ -1,6 +1,6 @@
 using lesson_2_1_3.Models;
 
-namespace lesson2_1.Repositories
+namespace lesson_2_1_3.Repositories
 {
     public class ProductsRepository
     {
@@ -26,7 +26,7 @@ namespace lesson2_1.Repositories
             return _products;
         }
 
-        public Product? TryGetById(int id)
+        public Product? TryGetById(Guid id)
         {
             return _products?.FirstOrDefault(t => t.Id == id);
         }

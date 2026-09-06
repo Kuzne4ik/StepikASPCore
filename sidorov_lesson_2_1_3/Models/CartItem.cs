@@ -4,14 +4,14 @@
     {
         private int _quantity;
 
-        public CartItem(int id, Product product, int quantity)
+        public CartItem(Guid id, Product product, int quantity)
         {
             Id = id;
             Product = product;
             Quantity = quantity;
         }
 
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public Product Product { get; set; }
 
         public int Quantity
