@@ -2,14 +2,15 @@
 {
     public class Cart
     {
-        public static Guid StartGuid { get; } = Guid.NewGuid();
-
-        public Cart(Guid id)
+        public Cart(Guid id, Guid userId)
         {
             Id = id;
+            UserId = userId;
         }
 
         public Guid Id { get; set; }
+
+        public Guid UserId { get; set; }
 
         public List<CartItem> Items { get; set; } = new List<CartItem>();
 

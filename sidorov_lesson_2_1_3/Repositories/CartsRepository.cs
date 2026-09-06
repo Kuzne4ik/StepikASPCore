@@ -9,11 +9,6 @@ namespace lesson_2_1_3.Repositories
 
         internal CartsRepository()
         {
-            if (!_carts.Any())
-            {
-                // Создаем одну корзину при инициализации репозитория
-                AddCart();
-            }
         }
 
         public List<Cart>? GetAll()
@@ -21,16 +16,30 @@ namespace lesson_2_1_3.Repositories
             return _carts;
         }
 
-        public Cart AddCart()
+        public Cart AddCart(Guid userId)
         {
-            Cart newCart;
-            if (!_carts.Any())
-                newCart = new Cart(Cart.StartGuid); // Используем StartGuid для первой корзины
-            else
-                newCart = new Cart(Guid.NewGuid());
-            _carts?.Add(newCart);
+            var cart = _carts?.FirstOrDefault(t => t.UserId == userId);
 
-            return newCart;
+            // Если корзина для данного пользователя не найдена, создаем новую
+            if (cart == null)
+            {
+                cart = new Cart(Guid.NewGuid(), Constants.UserId); // Используем StartGuid для первой корзины
+                _carts?.Add(cart);
+            }
+
+            return cart;
+        }
+
+        public Cart TryGetByUserId(Guid userId)
+        {
+            var cart = _carts?.FirstOrDefault(t => t.UserId == userId);
+            // Если корзина для данного пользователя не найдена, создаем новую
+            if (cart == null)
+            {
+                cart = AddCart(userId);
+            }
+
+            return cart;
         }
 
         public Cart? TryGetById(Guid id)
@@ -77,6 +86,30 @@ namespace lesson_2_1_3.Repositories
 
 
             throw new Exception($"Cart not found by id: {id}");
+        }
+
+        public Cart? AddCartItemByUserId(Guid userId, Product product)
+        {
+            var cart = TryGetByUserId(userId);
+
+
+            var cartItem = cart.Items.FirstOrDefault(t => t.Product.Id == product.Id);
+            if (cartItem != null)
+            {
+                cartItem.Quantity++;
+            }
+            else
+            {
+                cart.Items.Add(new CartItem(
+
+                    Guid.NewGuid(),
+                    product,
+                    1
+                ));
+            }
+
+            Update(cart);
+            return cart;
         }
     }
 }
