@@ -1,0 +1,30 @@
+[
+	{
+		"id": "567f6d66-6422-4a27-a2e2-bca6e3e49858",
+		"name": "Name1",
+		"cost": 1.0,
+		"description": "Description1",
+		"photoPath": "/img/image_file-32.png"
+	},
+	{
+		"id": "cc992552-07f1-4c0d-9671-34571dc9c8f2",
+		"name": "Name2",
+		"cost": 2.0,
+		"description": "Description2",
+		"photoPath": "/img/image_file-32.png"
+	},
+	{
+		"id": "f84a9a84-bf58-409f-a5cb-862281c6f1d7",
+		"name": "Name3",
+		"cost": 3.0,
+		"description": "Description3",
+		"photoPath": "/img/image_file-32.png"
+	},
+	{
+		"id": "53cc9678-6b40-4de0-a288-0a1477114b11",
+		"name": "Name4",
+		"cost": 4.0,
+		"description": "Description4",
+		"photoPath": "/img/image_file-32.png"
+	}
+]

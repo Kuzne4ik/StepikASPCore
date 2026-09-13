@@ -1,0 +1,43 @@
+﻿@model lesson_3_1_2.Models.Product
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+<body>
+    <div>
+    
+        <div class="container">
+            @{
+                if (Model != null)
+                {
+                    var product = Model;
+                    <div class="card shadow">
+                        <div class="col-5 mb-5 align-content-xs-center">
+                            <img class="card-img-top" src=@product.PhotoPath alt="...">
+                        </div>
+                        <div class="card-body text-center">
+                            <h3>@product.Name</h3>
+                            <div class="text-left">
+                                <p>@product.Description</p>
+                            </div>
+                            <h2 class="text-danger"> @product.Cost.ToString("c")</h2>
+                        </div>
+                        <a class="btn btn-success" asp-controller="cart" asp-action="add" asp-route-userId="@lesson_3_1_2.Constants.UserId" asp-route-productid="@product.Id">Добавить в корзину</a>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-info col-12">Продолжить покупки</a>
+                    </div>
+                }
+            }
+        </div>
+        
+        
+
+    </div>
+
+</body>
+</html>

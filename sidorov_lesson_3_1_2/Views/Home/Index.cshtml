@@ -1,0 +1,41 @@
+﻿@model List<lesson_3_1_2.Models.Product>?
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Products";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        @{
+            if (Model != null)
+            {
+                foreach (var product in Model)
+                {
+                    <div class="col-3 mb-3">
+                        <div class="card shadow">
+                            <div class="col-12 mb-5 align-content-xs-center">
+                                <img class="card-img-top" src=@product.PhotoPath alt="...">
+                            </div>
+                            <div class="card-body text-center">
+                                <a class="text-success" asp-controller="product" asp-action="index" asp-route-id="@product.Id">
+                                    <h5>@product.Name</h5>
+                                </a>
+                                <div class="text-left">
+                                    <p>@product.Description</p>
+                                </div>
+                                <h2 class="text-danger"> @product.Cost.ToString("c")</h2>
+                                <a class="btn btn-success" asp-controller="cart" asp-action="add" asp-route-userId="@lesson_3_1_2.Constants.UserId" asp-route-productid="@product.Id">Добавить в корзину</a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            }
+            else
+            {
+                <h2>Нет товаров для отображения!</h2>
+            }
+        }
+    </div>
+</div>
