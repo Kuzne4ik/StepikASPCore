@@ -6,10 +6,10 @@ namespace lesson_3_1_2.Controllers
 {
     public class CartController : Controller
     {
-        private readonly CartsRepository _cartsRepository;
-        private readonly ProductsRepository _productsRepository;
+        private readonly ICartsRepository _cartsRepository;
+        private readonly IProductsRepository _productsRepository;
 
-        public CartController(CartsRepository cartsRepository, ProductsRepository productsRepository)
+        public CartController(ICartsRepository cartsRepository, IProductsRepository productsRepository)
         {
             _cartsRepository = cartsRepository;
             _productsRepository = productsRepository;

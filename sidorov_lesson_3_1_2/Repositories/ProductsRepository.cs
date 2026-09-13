@@ -6,7 +6,7 @@ namespace lesson_3_1_2.Repositories
     {
         readonly List<Product>? _products;
 
-        internal ProductsRepository()
+        public ProductsRepository()
         {
             var productsFilePath = Path.Combine(Environment.CurrentDirectory, "data", "products.json");
 

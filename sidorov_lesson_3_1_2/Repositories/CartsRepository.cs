@@ -8,7 +8,7 @@ namespace lesson_3_1_2.Repositories
         public static List<Cart>? _carts = new List<Cart>();
 
 
-        internal CartsRepository()
+        public CartsRepository()
         {
         }
 

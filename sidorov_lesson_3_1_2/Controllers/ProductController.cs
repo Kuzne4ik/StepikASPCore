@@ -5,9 +5,9 @@ namespace lesson_3_1_2.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductsRepository _productsRepository;
+        private readonly IProductsRepository _productsRepository;
 
-        public ProductController(ProductsRepository productsRepository)
+        public ProductController(IProductsRepository productsRepository)
         {
             _productsRepository = productsRepository;
         }
