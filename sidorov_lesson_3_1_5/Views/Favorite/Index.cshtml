@@ -1,0 +1,44 @@
+﻿@using lesson_3_1_5.Models
+@model lesson_3_1_5.Models.Favorite
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Favorit Products";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        @{
+            if (Model != null && Model.Products.Count > 0)
+            {
+                foreach (var product in Model.Products)
+                {
+                    <div class="col-3 mb-3">
+                        <div class="card shadow">
+                            <div class="col-12 mb-5 align-content-xs-center">
+                                <img class="card-img-top" src=@product.PhotoPath alt="...">
+                            </div>
+                            <div class="card-body text-center">
+                                <a class="text-success" asp-controller="product" asp-action="index" asp-route-id="@product.Id">
+                                    <h5>@product.Name</h5>
+                                </a>
+                                <div class="text-left">
+                                    <p>@product.Description</p>
+                                </div>
+                                <h2 class="text-danger"> @product.Cost.ToString("c")</h2>
+                                <a class="btn btn-success" asp-controller="Favorite" asp-action="Remove" asp-route-userId="@lesson_3_1_5.Constants.UserId" asp-route-productid="@product.Id">Удалить из избранного</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <h2>Нет  товаров для отображения!</h2>
+            }
+
+            <a class="btn btn-outline-danger col-12 m-1" col-12 asp-controller="Favorite" asp-action="Clear" asp-route-userId="@lesson_3_1_5.Constants.UserId">Очистить список избранного</a>
+        }
+
+    </div>
+</div>
