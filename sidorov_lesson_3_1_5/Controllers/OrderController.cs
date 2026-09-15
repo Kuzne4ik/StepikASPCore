@@ -71,9 +71,18 @@ namespace lesson_3_1_5.Controllers
                 order.Phone = phone;
 
                 _ordersRepository.Update(order);
-                return RedirectToAction("Clear", "Cart", new { id = order.UserId });
+
+                // Очистить корзину
+                _cartsRepository.Clear(order.UserId);
+
+                return RedirectToAction("Success");
             }
             throw new NotImplementedException("Create Order for null params not implemented");
+        }
+
+        public IActionResult Success()
+        {
+            return View();
         }
     }
 }

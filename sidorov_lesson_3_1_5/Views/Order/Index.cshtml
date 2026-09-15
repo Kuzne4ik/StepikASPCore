@@ -25,23 +25,26 @@
         <tbody>
         <tr>
         <td class="w-50 p-4">
-        @{
-            if (Model != null)
-            {
-                <p>
-                    <label asp-for="UserName">Имя</label><br />
-                    <input asp-for="UserName" type="text" class="w-100"/>
-                </p>
-                <p>
-                    <label asp-for="Address">Адрес доставки</label><br />
-                    <input asp-for="Address" type="text" class="w-100" />
-                </p>
-                <p>
-                    <label asp-for="Phone">Телефон</label><br />
-                    <input asp-for="Phone" type="tel" class="w-100" />
-                </p>
-            }
-        }
+            <form id="orderForm" asp-controller="Order" asp-action="Submit" method="post">
+                @{
+                    if (Model != null)
+                    {
+                        <input type="hidden" asp-for="Id" />
+                        <p>
+                            <label asp-for="UserName">Имя</label><br />
+                            <input asp-for="UserName" type="text" class="w-100"/>
+                        </p>
+                        <p>
+                            <label asp-for="Address">Адрес доставки</label><br />
+                            <input asp-for="Address" type="text" class="w-100" />
+                        </p>
+                        <p>
+                            <label asp-for="Phone">Телефон</label><br />
+                            <input asp-for="Phone" type="tel" class="w-100" />
+                        </p>
+                    }
+                }
+            </form>
         </td>
                               <td class="w-50 p-4">
                               <div class="container">
@@ -113,8 +116,7 @@
                               </tbody>
                               </table>
                               <div class="row justify-content-center">
-                                  <a class="btn btn-outline-danger col-12 m-1" col-12 asp-controller="Order" asp-action="Submit" asp-route-id="@Model?.Id" asp-route-username="@Model?.UserName" asp-route-address="@Model?.Address"
-                                     asp-route-phone="@Model?.Phone">Оплатить заказ</a>
+                                  <button type="submit" form="orderForm" class="btn btn-outline-danger col-12 m-1">Оплатить заказ</button>
                               </div>        
 
                               <a asp-controller="Home" asp-action="Index" class="btn btn-info col-12 m-1">Продолжить покупки</a>
