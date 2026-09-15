@@ -55,7 +55,7 @@ namespace lesson_3_1_5.Controllers
             throw new NotImplementedException("Create Order for null params not implemented");
         }
 
-
+        [HttpPost]
         public IActionResult Submit(Guid? id, string userName, string address, string phone)
         {
             if (id == null || string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(phone))

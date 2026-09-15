@@ -20,4 +20,5 @@ public interface ICartsRepository
 
     public Cart? RemoveCartItemByUserId(Guid userId, Product product);
     public Cart? Clear(Guid userId);
+    int GetItemsCount(Guid userId);
 }

@@ -139,6 +139,12 @@ namespace lesson_3_1_5.Repositories
             Update(cart);
             return cart;
         }
+
+        public int GetItemsCount(Guid userId)
+        {
+            var cart = TryGetByUserId(userId);
+            return cart.Items.Count;
+        }
     }
 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
