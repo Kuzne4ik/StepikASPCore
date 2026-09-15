@@ -48,7 +48,7 @@
                                                 <h3 class="text-center">@cartItem.Product.Cost</h3>
                                             </div>
                                             <div class="col-3 align-self-center d-flex align-items-center justify-content-center">
-                                                <a class="btn btn-dark mx-1" asp-controller="Cart" asp-action="Remove" asp-route-userId="@lesson_3_1_5.Constants.UserId" asp-route-productId="@cartItem.Product.Id">-</a>
+                                                <a class="btn btn-dark mx-1" asp-controller="Cart" asp-action="Substract" asp-route-userId="@lesson_3_1_5.Constants.UserId" asp-route-productId="@cartItem.Product.Id">-</a>
                                                 <h3 class="mx-2 mb-0">@cartItem.Quantity</h3>
                                                 <a class="btn btn-dark mx-1" asp-controller="Cart" asp-action="Add" asp-route-userId="@lesson_3_1_5.Constants.UserId" asp-route-productId="@cartItem.Product.Id">+</a>
                                             </div>

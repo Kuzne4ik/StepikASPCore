@@ -53,7 +53,7 @@ namespace lesson_3_1_5.Controllers
             throw new NotImplementedException("Cart for null params not implemented");
         }
 
-        public IActionResult Remove(Guid? userId = null, Guid? productId = null)
+        public IActionResult Substract(Guid? userId = null, Guid? productId = null)
         {
             // Если передан id, ищем корзину с этим id
             if (userId != null && productId != null)
