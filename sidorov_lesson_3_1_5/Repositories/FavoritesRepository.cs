@@ -1,5 +1,6 @@
 using lesson_3_1_5.Models;
 using lesson_3_1_5.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace lesson_3_1_5.Repositories
 {
@@ -54,7 +55,8 @@ namespace lesson_3_1_5.Repositories
 
             if (favorite.Products.Any(t => t.Id == product.Id))
             {
-                throw new Exception($"Product is addedd already to User accountby productId: {product.Id}");
+                // уже есть такой товар в избранном, не добавляем его повторно
+                return favorite;
             }
             favorite.Products.Add(product);
 

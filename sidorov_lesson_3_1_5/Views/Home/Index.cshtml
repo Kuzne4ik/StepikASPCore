@@ -27,6 +27,7 @@
                                 <h2 class="text-danger"> @product.Cost.ToString("c")</h2>
                                 <a class="btn btn-success m-1 w-100" asp-controller="Cart" asp-action="add" asp-route-userId="@lesson_3_1_5.Constants.UserId" asp-route-productid="@product.Id">Добавить в корзину</a>
                                 <a class="btn btn-light m-1 w-100" asp-controller="Favorite" asp-action="Add" asp-route-userId="@lesson_3_1_5.Constants.UserId" asp-route-productid="@product.Id">Добавить в избранное</a>
+                                <a class="btn btn-light m-1 w-100" asp-controller="Favorite" asp-action="Remove" asp-route-userId="@lesson_3_1_5.Constants.UserId" asp-route-productid="@product.Id">Убрать из избранного</a>
                             </div>
                         </div>
                     </div>
